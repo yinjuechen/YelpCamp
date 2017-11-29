@@ -17,12 +17,10 @@ var app = express();
 var seedDB = require('./seed');
 var mongoose = require("mongoose");
 
-//seedDB();//seed the database
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
-// mongoose.connect("mongodb://juechenyin:Yjc091313@ds123956.mlab.com:23956/yelp_camp");
-// mongoose.connect("mongodb://juechenyin:yinjuechen@cluster0-shard-00-00-eyhlf.mongodb.net:27017,cluster0-shard-00-01-eyhlf.mongodb.net:27017,cluster0-shard-00-02-eyhlf.mongodb.net:27017/yelp_camp?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin", {useMongoClient: true});
 
+//seedDB();//seed the database
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
