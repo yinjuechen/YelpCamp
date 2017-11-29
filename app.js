@@ -19,8 +19,9 @@ var mongoose = require("mongoose");
 
 //seedDB();//seed the database
 mongoose.Promise = require("es6-promise").Promise;
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {useMongoClient: true});
-
+// mongoose.connect("mongodb://localhost:27017/yelp_camp", {useMongoClient: true});
+mongoose.connect("mongodb://<juechenyin>:<Yjc091313>@ds123956.mlab.com:23956/yelp_camp", {useMongoClient: true});
+// mongodb://<juechenyin>:<Yjc091313>@ds123956.mlab.com:23956/yelp_camp
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
