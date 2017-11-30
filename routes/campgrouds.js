@@ -26,20 +26,27 @@ router.post("/", middlewareObj.loginCheck, function (req, res) {
         username: req.user.username
     };
     geocoder.geocode(req.body.location, function (err, data) {
-        var lat = data.results[0].geometry.location.lat;
-        var lng = data.results[0].geometry.location.lng;
-        var location = data.results[0].formatted_address;
-        var newCamp = {name: name, image: image, description: description, author: author, price: price, location: location, lat: lat, lng: lng};
-        console.log(newCamp);
-        Campground.create(newCamp, function (err, campground) {
-            if (err)
-                console.log(err);
-            else {
-                console.log("add a new camp");
-                console.log(campground);
-                res.redirect("/campgrounds");
-            }
-        })
+        console.log("data:" + data);
+        if(data.results[0])
+        {
+            var lat = data.results[0].geometry.location.lat;
+            var lng = data.results[0].geometry.location.lng;
+            var location = data.results[0].formatted_address;
+            var newCamp = {name: name, image: image, description: description, author: author, price: price, location: location, lat: lat, lng: lng};
+            console.log(newCamp);
+            Campground.create(newCamp, function (err, campground) {
+                if (err)
+                    console.log(err);
+                else {
+                    console.log("add a new camp");
+                    console.log(campground);
+                    res.redirect("/campgrounds");
+                }
+            })
+        }else {
+            req.flash("error","invalid location");
+            res.redirect('back');
+        }
     });
 });
 
