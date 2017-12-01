@@ -7,9 +7,16 @@
             <p>
                 <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
             </p>
+            <p>
+            <form action = "/campgrounds" method="get" class="form-inline">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="search" placeholder="Campground search...">
+                    <input class = "form-control btn" type="submit" value="Search">
+                </div>
+            </form>
+            </p>
         </div>
     </header>
-
     <div class="flex-row row text-center" style="display:flex; flex-wrap: wrap;">
         <% campgrounds.forEach(function(campground){ %>
         <div class="col-md-4 col-sm-6">

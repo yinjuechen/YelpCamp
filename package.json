@@ -14,6 +14,7 @@
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "es6-promise": "^4.1.1",
+    "escape-string-regexp": "^1.0.5",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
     "font-awesome": "^4.7.0",

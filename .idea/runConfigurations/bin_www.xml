@@ -3,6 +3,7 @@
     <envs>
       <env name="DEBUG" value="YelpCamp:*" />
       <env name="DATABASEURL" value="mongodb://localhost:27017/yelp_camp" />
+      <env name="GoogleMapKey" value="AIzaSyDhj1sUFa0KYAwTAnqpYDl6jufs-_hw8qs" />
     </envs>
     <browser url="http://localhost:3000/" />
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
