@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <h1><%= user.firstName + " " +user.lastName%></h1>
+            <div>
+                <img src="<%= user.avatar %>" alt="user profile avatar" class="img-thumbnail w-50 h-25 border-0">
+                <div class="figure-caption"><a href="<%= user.email %>"><%= user.email %></a></div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h3><%= user.username%>'s campground:</h3>
+            <ul>
+                <li>
+                    <% campgrounds.forEach(function (campground) { %>
+                    <a href="/campgrounds/<%= campground._id %>"><%= campground.name %></a>
+                    <% }); %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

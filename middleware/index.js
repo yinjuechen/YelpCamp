@@ -14,7 +14,7 @@ var middlewareObj = {
                         req.flash('error', "Campground not found");
                         return res.status(400).send("Item not found.");
                     }
-                    if (foundCampground.author.id.equals(req.user._id)) {
+                    if (foundCampground.author.id.equals(req.user._id) || req.user.isAdmin) {
                         next();
                     }
                     else {
@@ -38,7 +38,7 @@ var middlewareObj = {
                 } else {
                     if (!foundComment)
                         return res.status(400).send("Item not found.")
-                    if (foundComment.author.id.equals(req.user._id)) {
+                    if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) {
                         next();
                     } else {
                         req.flash("error", "You don't have permission to do that.");
@@ -52,7 +52,6 @@ var middlewareObj = {
         }
     },
     loginCheck: function (req, res, next) {
-        console.log(req.isAuthenticated());
         if (req.isAuthenticated()) {
             return next();
         }

@@ -18,8 +18,9 @@
                 </div>
                 <div class="pl-1">
                     <p class="text-justify"><%= campground.description %></p>
-                    <p class="text-justify"><em>Submitted By <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em></p>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                    <p class="text-justify"><em>Submitted By: <a href="/users/<%= campground.author.id%>"><%= campground.author.username %></a>
+                            , <%= moment(campground.createdAt).fromNow() %></em></p>
+                    <% if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin)){ %>
                     <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                     <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="post" class="d-inline">
                         <button class="btn btn-danger">Delete</button>
@@ -37,11 +38,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <strong><%= comment.author.username %></strong>
-                        <span class="float-right"><%= moment(comment.createdAt).fromNow()%></span>
+                        <span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>
                         <p>
                             <%= comment.text %>
                         </p>
-                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <% if(currentUser && (comment.author.id.equals(currentUser._id) || currentUser.isAdmin)){ %>
                         <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit"
                            class="btn btn-sm btn-warning">Edit</a>
                         <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
@@ -61,7 +62,7 @@
     function initMap() {
         var lat = <%= campground.lat %>;
         var lng = <%= campground.lng %>;
-        var center = {lat: lat, lng: lng };
+        var center = {lat: lat, lng: lng};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 8,
             center: center,
@@ -79,7 +80,7 @@
             position: center,
             map: map
         });
-        marker.addListener('click', function() {
+        marker.addListener('click', function () {
             infowindow.open(map, marker);
         });
     }

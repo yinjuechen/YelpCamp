@@ -4,6 +4,10 @@
       <env name="DEBUG" value="YelpCamp:*" />
       <env name="DATABASEURL" value="mongodb://localhost:27017/yelp_camp" />
       <env name="GoogleMapKey" value="AIzaSyDhj1sUFa0KYAwTAnqpYDl6jufs-_hw8qs" />
+      <env name="AdminCode" value="ilovejiaying" />
+      <env name="CLOUDINARY_API_KEY" value="616329549681415" />
+      <env name="CLOUDINARY_API_SECRET" value="KRZVXo2-6CugGaU1N8pNN3kibVA" />
+      <env name="CLOUDINARY_NAME" value="juechen" />
     </envs>
     <browser url="http://localhost:3000/" />
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">

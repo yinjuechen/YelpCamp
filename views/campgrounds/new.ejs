@@ -3,10 +3,10 @@
     <div class="row">
         <h1 class="col-12 text-center mt-1 mb-2">Create a New Campground</h1>
         <div style="width: 30%; margin: 0px auto;">
-            <form action="/campgrounds" , method="POST">
+            <form action="/campgrounds" , method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input class="form-control mr-2" type="text" , placeholder="name" name="name"></input>
+                    <input class="form-control mr-2" type="text" , placeholder="name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
@@ -14,7 +14,11 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Image Url</label>
-                    <input class="form-control" type="text" , placeholder="image url" name="image"></input>
+                    <input class="form-control" type="text" , placeholder="image url" name="online_image">
+                </div>
+                <div class="form-group">
+                    <p>Or upload a local file</p>
+                    <input type="file" name="local_image" id="local_image" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
