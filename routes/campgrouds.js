@@ -156,7 +156,7 @@ router.put('/:id', middlewareObj.checkCampgroundPermission, function (req, res) 
                     var location = data.results[0].formatted_address;
                     var newData = {
                         name: req.body.campground.name,
-                        image: image,
+                        image: image,wwwwwwwwwwwwwwwwwwwwwwww
                         image_public_id: image_public_id,
                         description: req.body.campground.description,
                         price: req.body.campground.price,

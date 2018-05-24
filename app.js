@@ -18,7 +18,7 @@ var seedDB = require('./seed');
 var mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
 
 //seedDB();//seed the database
 // view engine setup
@@ -47,7 +47,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//Configure Routes
+//
 app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
     next();
@@ -56,7 +56,8 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
-})
+});
+//Configure Routes
 app.use('/', index);
 app.use('/campgrounds', campgrounds);
 app.use('/campgrounds/:id/comments', comments);
